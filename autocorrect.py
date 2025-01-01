@@ -1,23 +1,18 @@
 
 import nltk
 nltk.download('all')
-
-# Importing the NLTK library
 import re
+import pattern
+from pattern.en import lexeme
+from nltk.stem import WordNetLemmatizer
 
 # Initialize an empty list to store words
 w = []
-
-
 # Read the text file
 with open('/content/final.txt', 'r', encoding="utf8") as f:
 	file_name_data = f.read()
 	file_name_data = file_name_data.lower()
 	w = re.findall('\w+', file_name_data)  # Tokenize the text into words
-
-
-
-
 
 # Create a vocabulary set
 main_set = set(w)
@@ -32,8 +27,6 @@ def counting_words(words):
 			word_count[word] = 1
 	return word_count
 
-
-
 # Function to calculate the probability of each word
 def prob_cal(word_count_dict):
 	probs = {}
@@ -42,15 +35,7 @@ def prob_cal(word_count_dict):
 		probs[key] = word_count_dict[key] / m
 	return probs
 
-
-
-
-
 # Function to extract the root word (Lemma) using the 'pattern' module
-import pattern
-from pattern.en import lexeme
-from nltk.stem import WordNetLemmatizer
-
 def LemmWord(word):
 	return list(lexeme(wd) for wd in word.split())[0]
 
@@ -66,7 +51,6 @@ def DeleteLetter(word):
 	for a, b in split_list:
 		delete_list.append(a + b[1:])
 	return delete_list
-
 
 # Function to switch two letters in a word
 def Switch_(word):
