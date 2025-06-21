@@ -1,18 +1,33 @@
-
 # Word Correction and Probability Analysis
 
-This Python script is designed to perform word correction and analyze word probabilities in a given text file. It uses natural language processing techniques to tokenize the text, calculate word frequencies, and provide word suggestions based on user input.
+This Python library implements an **advanced, corpus-based spell checker** that analyzes word frequencies, suggests corrections based on **edit distance**, **phonetic similarity**, and **contextual bigrams**, and provides rich insights from the input corpus.
+
+---
+
+## Features
+
+- Extracts vocabulary, word frequency, and bigram patterns from any text file  
+- Suggests spelling corrections using:
+  - Edit distance (1 & 2)
+  - Phonetic transformations
+  - Word probability and frequency
+  - Context-aware scoring using bigrams
+- Interactive CLI menu for demo and testing
+- Saves vocabulary and statistics to a JSON file
+- Handles contractions and punctuation robustly
+
+---
 
 ## Prerequisites
 
-Before running the script, ensure that you have the following prerequisites installed:
+- Python 3.7 or later
+- Required libraries:
+  - [`nltk`](https://www.nltk.org/)
+  - [`pattern`](https://github.com/clips/pattern) (for lemmatization, optional)
 
-- Python 3.x
-- `nltk` library (Natural Language Toolkit)
-- `pattern` library
-- Text file (`data.txt`) containing the text for analysis
+Install dependencies using pip:
 
-You can install the required libraries using pip:
 ```bash
 pip install nltk
 pip install pattern
+
